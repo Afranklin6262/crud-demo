@@ -8,10 +8,10 @@ const app = express()
 // ========================
 // Updates environment variables
 // @see https://zellwk.com/blog/environment-variables/
-require('./dotenv')
+//require('./dotenv')
 
 // Replace process.env.DB_URL with your actual connection string
-const connectionString = process.env.DB_URL
+const connectionString = "mongodb+srv://AFranklin:Cyb3rPunk2077@cluster0.nnwru.mongodb.net/newdatabase?retryWrites=true&w=majority";
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
@@ -79,8 +79,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // ========================
     // Listen
     // ========================
-    const isProduction = process.env.NODE_ENV === 'production'
-    const port = isProduction ? 7500 : 3000
+//    const isProduction = process.env.NODE_ENV === 'production'
+//    const port = isProduction ? 7500 : 3000
+      const port = 8178
     app.listen(port, function () {
       console.log(`listening on ${port}`)
     })
